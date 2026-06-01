@@ -1,12 +1,15 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=3000&pause=800&color=A78BFA&center=true&vCenter=true&width=700&lines=Hi%2C+I'm+Gwenn!+%F0%9F%91%8B;I+build+things+that+actually+matter.;AI+%C2%B7+Full-Stack+%C2%B7+Design." alt="Typing SVG" />
+<img src="assets/gdlogo.png" width="180" alt="GD Logo" />
 
-### Princess Gwenn Destura
+<br/><br/>
 
-CS Student & Developer from the Philippines —  
-building AI-powered tools and web apps that tackle real problems,  
-from detecting deepfakes to mapping food insecurity.
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=3000&pause=800&color=FFFFFF&center=true&vCenter=true&width=700&lines=Hi%2C+I'm+Gwenn!;I+build+things+that+actually+matter.;AI+%C2%B7+Full-Stack+%C2%B7+Design." alt="Typing SVG" />
+
+### Princess Gwenn A. Destura
+
+BS Computer Science with Specialization in Intelligent Systems  
+De La Salle University – Dasmariñas
 
 <br/>
 
@@ -19,7 +22,7 @@ from detecting deepfakes to mapping food insecurity.
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 **Languages**
 
@@ -61,25 +64,9 @@ from detecting deepfakes to mapping food insecurity.
 
 ---
 
-## 🗂 Featured Projects
-
-| Project | What it does | Stack |
-|:---|:---|:---|
-| [**VeriFeed**](https://github.com/gwenndestura/VeriFeed) | AI browser extension that detects deepfake videos on Facebook in real-time — 91.43% accuracy | Python · Flask · PyTorch · JS |
-| [**aiPHeed**](https://github.com/gwenndestura/aipheed-frontend) | ML-powered dashboard forecasting food insecurity risks in CALABARZON | TypeScript · Vue.js · Tailwind |
-| [**LiPHt**](https://github.com/gwenndestura/LiPHt) | Community platform connecting Filipino families with scholarships & livelihood programs | React · TypeScript · Supabase |
-| [**BeanThere**](https://github.com/gwenndestura/BeanThere) | Café discovery & review app for Dasmariñas, Cavite | Vue.js · Django · MySQL |
-| [**AutomaticQuatro**](https://github.com/gwenndestura/AutomaticQuatro) | Formal language theory simulator with animated DFA, PDA & CFG visualizations | Vue.js · D3.js |
-
----
-
 <div align="center">
 
 <img height="170em" src="https://github-readme-stats.vercel.app/api?username=gwenndestura&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" />
 <img height="170em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=gwenndestura&layout=compact&theme=tokyonight&hide_border=true" />
-
-<br/><br/>
-
-*Building purposeful software, one commit at a time.*
 
 </div>

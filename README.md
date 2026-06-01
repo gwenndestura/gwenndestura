@@ -11,7 +11,7 @@
 BS Computer Science with Specialization in Intelligent Systems  
 De La Salle University – Dasmariñas
 
-⤷ ゛Open to collaborations on AI, data, and full-stack projects ˎˊ˗
+⤷ ゛Open to collaborations and building meaningful projects ˎˊ˗
 
 <br/>
 
@@ -64,17 +64,3 @@ De La Salle University – Dasmariñas
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 
----
-
-## GitHub Stats
-
-<div align="center">
-
-<img height="165em" src="https://github-readme-stats.vercel.app/api?username=gwenndestura&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" />
-<img height="165em" src="https://streak-stats.demolab.com?user=gwenndestura&theme=tokyonight&hide_border=true" />
-
-<br/>
-
-![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=gwenndestura&theme=tokyo-night&hide_border=true)
-
-</div>

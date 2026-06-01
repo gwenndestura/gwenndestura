@@ -4,7 +4,7 @@
 
 <br/><br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=3000&pause=800&color=FFFFFF&center=true&vCenter=true&width=700&lines=Hi%2C+I'm+Gwenn!;I+build+things+that+actually+matter.;AI+%C2%B7+Full-Stack+%C2%B7+Design." alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=3000&pause=800&color=FFFFFF&center=true&vCenter=true&width=700&lines=Hi%2C+I'm+Gwenn!;I+build+things+that+actually+matter.;AI%2FML+%C2%B7+Full-Stack+%C2%B7+Design." alt="Typing SVG" />
 
 ### Princess Gwenn A. Destura
 
@@ -62,11 +62,3 @@ De La Salle University – Dasmariñas
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 
----
-
-<div align="center">
-
-<img height="170em" src="https://github-readme-stats.vercel.app/api?username=gwenndestura&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" />
-<img height="170em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=gwenndestura&layout=compact&theme=tokyonight&hide_border=true" />
-
-</div>

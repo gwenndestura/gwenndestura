@@ -78,12 +78,8 @@ body {
   pointer-events: none;
 }
 .splash-gd {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(8rem, 22vw, 15rem);
-  font-weight: 800;
-  color: var(--accent);
-  letter-spacing: -.05em;
-  line-height: 1;
+  width: clamp(7rem, 20vw, 12rem);
+  height: auto;
   user-select: none;
   animation: splashGDIn 1.5s cubic-bezier(.4, 0, .2, 1) forwards;
 }

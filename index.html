@@ -20,19 +20,19 @@
 
 <!-- ===================== NAV ===================== -->
 <nav class="nav" id="nav">
-  <div class="nav-pill">
+  <div class="nav-inner">
     <a href="#home" class="nav-logo">
       <img src="assets/gdlogo.png" alt="GD" />
       <span>gwenndestura</span>
     </a>
     <ul class="nav-links">
-      <li><a href="#home"         class="nav-link" data-sec="home">HOME</a></li>
-      <li><a href="#about"        class="nav-link" data-sec="about">ABOUT</a></li>
-      <li><a href="#stack"        class="nav-link" data-sec="stack">STACK</a></li>
-      <li><a href="#projects"     class="nav-link" data-sec="projects">PROJECTS</a></li>
-      <li><a href="#experience"   class="nav-link" data-sec="experience">EXPERIENCE</a></li>
-      <li><a href="#achievements" class="nav-link" data-sec="achievements">ACHIEVEMENTS</a></li>
-      <li><a href="#contact"      class="nav-link" data-sec="contact">CONTACT</a></li>
+      <li><a href="#home"         class="nav-link" data-sec="home">Home</a></li>
+      <li><a href="#about"        class="nav-link" data-sec="about">About</a></li>
+      <li><a href="#stack"        class="nav-link" data-sec="stack">Stack</a></li>
+      <li><a href="#projects"     class="nav-link" data-sec="projects">Projects</a></li>
+      <li><a href="#experience"   class="nav-link" data-sec="experience">Experience</a></li>
+      <li><a href="#achievements" class="nav-link" data-sec="achievements">Achievements</a></li>
+      <li><a href="#contact"      class="nav-link" data-sec="contact">Contact</a></li>
     </ul>
     <div class="nav-actions">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
@@ -57,8 +57,8 @@
 <section id="home" class="hero">
   <div class="hero-inner">
 
-    <!-- LEFT: photo + stats -->
-    <div class="hero-photo-col">
+    <!-- Photo column (left) -->
+    <div class="hero-photo-col fade-2">
       <div class="hero-photo-outer">
         <div class="hero-photo-card">
           <img src="assets/1x1%20tilted.png" alt="Princess Gwenn Destura" id="heroPhoto" />
@@ -84,7 +84,7 @@
       </div>
     </div>
 
-    <!-- RIGHT: text content -->
+    <!-- Text column (right) -->
     <div class="hero-text">
       <div class="hero-status fade-1">
         <span class="status-dot"></span>
@@ -92,33 +92,27 @@
         <span class="status-sep">·</span>
         <span>PHILIPPINES</span>
       </div>
-
-      <p class="hero-intro fade-2">HI, I'M —</p>
-
-      <h1 class="hero-name fade-3">
+      <p class="hero-intro fade-1">CS · Intelligent Systems · DLSU-D</p>
+      <h1 class="hero-name fade-2">
         <span class="n-white">Princess</span>
         <span class="n-grad">Gwenn</span>
         <span class="n-white">Destura<span class="n-dot">.</span></span>
       </h1>
-
-      <div class="hero-role fade-4">
+      <div class="hero-role fade-3">
         <span class="role-dash"></span>
         <span id="typewriter"></span><span class="cursor"></span>
       </div>
-
-      <p class="hero-bio fade-4">
+      <p class="hero-bio fade-3">
         Third-year CS student at <strong>De La Salle University – Dasmariñas</strong>,
         specializing in <strong>Intelligent Systems</strong>. I build full-stack web apps,
         train ML models, and design interfaces that actually make sense.
       </p>
-
-      <div class="hero-cta fade-5">
+      <div class="hero-cta fade-4">
         <a href="#projects" class="btn-primary">View My Work
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
         <a href="#contact" class="btn-secondary">Get in Touch</a>
       </div>
-
       <div class="hero-socials fade-5">
         <a href="mailto:gwenndestura@gmail.com" class="soc-ico" aria-label="Email">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -423,7 +417,7 @@
         </div>
         <div class="pcard-body">
           <h3 class="pcard-title">Zapp</h3>
-          <p class="pcard-desc">High-fidelity productivity app prototype. Bold visual identity with gesture-driven navigation and minimal friction design.</p>
+          <p class="pcard-desc">High-fidelity mobile prototype for an e-commerce and online shopping application. Bold visual identity, intuitive product browsing, and streamlined checkout flows.</p>
           <div class="pcard-tags"><span class="ptag">Figma</span><span class="ptag">UI/UX</span></div>
           <div class="pcard-links">
             <a href="https://www.figma.com/design/hieG68XrBAf66lL4BeMYjI/Zapp?node-id=0-1&t=4cGijuZrbIdTaqDX-1" target="_blank" class="plink-gh">Figma</a>
@@ -880,7 +874,7 @@
   <div class="certlb-backdrop" id="certLbBackdrop"></div>
   <div class="certlb-box">
     <button class="certlb-close" id="certLbClose">&#x2715;</button>
-    <img id="certLbImg" src="" alt="" />
+    <div class="certlb-imgs" id="certLbImgs"></div>
   </div>
 </div>
 

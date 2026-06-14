@@ -480,17 +480,19 @@ achTabs.forEach(tab => {
 /* ============================================================
    CERT LIGHTBOX
    ============================================================ */
-const certLightbox = document.getElementById('certLightbox');
-const certlbImg    = document.getElementById('certLbImg');
-const certlbClose  = document.getElementById('certLbClose');
-const certlbBack   = document.getElementById('certLbBackdrop');
+const certLightbox  = document.getElementById('certLightbox');
+const certlbImgsEl  = document.getElementById('certLbImgs');
+const certlbClose   = document.getElementById('certLbClose');
+const certlbBack    = document.getElementById('certLbBackdrop');
 
 document.querySelectorAll('.cert-card').forEach(card => {
-  card.addEventListener('click', e => {
-    const clickedImg = e.target.closest('.cert-img');
-    const src = clickedImg?.src || card.querySelector('.cert-img')?.src;
-    if (!src || !certLightbox || !certlbImg) return;
-    certlbImg.src = src;
+  card.addEventListener('click', () => {
+    const imgs = Array.from(card.querySelectorAll('.cert-img'));
+    if (!imgs.length || !certLightbox || !certlbImgsEl) return;
+    certlbImgsEl.innerHTML = imgs.map(img =>
+      `<img src="${img.src}" alt="${img.alt}" />`
+    ).join('');
+    certlbImgsEl.className = 'certlb-imgs' + (imgs.length > 1 ? ' certlb-dual' : '');
     certLightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
   });
@@ -506,4 +508,163 @@ if (certlbClose) certlbClose.addEventListener('click', closeLightbox);
 if (certlbBack)  certlbBack.addEventListener('click',  closeLightbox);
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && certLightbox?.classList.contains('open')) closeLightbox();
+});
+
+/* ============================================================
+   NAV SCROLL BEHAVIOR
+   ============================================================ */
+const nav = document.getElementById('nav');
+if (nav) {
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
+}
+
+/* ============================================================
+   HERO BACKGROUND ORBS
+   ============================================================ */
+(function () {
+  const hero = document.getElementById('home');
+  if (!hero) return;
+  const orbs = [
+    { w: 560, h: 560, alpha: .17, top: '-140px', right: '6%',  dur: '11s', delay: '0s',  dir: 'normal' },
+    { w: 400, h: 400, alpha: .12, bottom: '-90px', left: '4%', dur: '13s', delay: '-5s', dir: 'reverse' },
+    { w: 300, h: 300, alpha: .09, top: '42%',  left: '42%',   dur: '16s', delay: '-9s', dir: 'alternate' },
+  ];
+  orbs.forEach(d => {
+    const el = document.createElement('div');
+    el.className = 'hero-orb';
+    el.style.cssText = [
+      `width:${d.w}px`, `height:${d.h}px`,
+      `filter:blur(80px)`,
+      `background:radial-gradient(circle, rgba(91,143,212,${d.alpha}) 0%, transparent 65%)`,
+      d.top    ? `top:${d.top}`       : '',
+      d.bottom ? `bottom:${d.bottom}` : '',
+      d.left   ? `left:${d.left}`     : '',
+      d.right  ? `right:${d.right}`   : '',
+      `animation:orbFloat ${d.dur} ease-in-out ${d.delay} infinite ${d.dir}`,
+    ].filter(Boolean).join(';');
+    hero.insertBefore(el, hero.firstChild);
+  });
+})();
+
+/* ============================================================
+   3D CARD TILT
+   ============================================================ */
+document.querySelectorAll('.pcard, .featured').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width  - .5;
+    const y = (e.clientY - r.top)  / r.height - .5;
+    card.style.transition = 'box-shadow .22s ease, border-color .22s ease';
+    card.style.transform  = `perspective(900px) rotateY(${x * 10}deg) rotateX(${-y * 8}deg) translateY(-5px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transition = '';
+    card.style.transform  = '';
+  });
+});
+
+/* ============================================================
+   TECH GRID STAGGER POP-IN
+   ============================================================ */
+document.querySelectorAll('.tech-grid').forEach(grid => {
+  const tiles = Array.from(grid.querySelectorAll('.tech-tile'));
+  tiles.forEach((tile, i) => {
+    tile.style.opacity   = '0';
+    tile.style.transform = 'translateY(14px) scale(.88)';
+    tile.style.transition = `opacity .38s ease ${i * .04}s, transform .38s cubic-bezier(.34,1.56,.64,1) ${i * .04}s`;
+  });
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      tiles.forEach(tile => { tile.style.opacity = '1'; tile.style.transform = ''; });
+      obs.disconnect();
+    }
+  }, { threshold: .08 });
+  obs.observe(grid);
+});
+
+/* ============================================================
+   COUNT-UP NUMBERS
+   ============================================================ */
+function countUp(el) {
+  const raw = el.textContent.trim();
+  const m = raw.match(/^(\d+)(.*)$/);
+  if (!m) return;
+  const target = parseInt(m[1]), suffix = m[2];
+  let n = 0;
+  const steps = 36, interval = 900 / steps;
+  const t = setInterval(() => {
+    n = Math.min(n + target / steps, target);
+    el.textContent = Math.round(n) + suffix;
+    if (n >= target) clearInterval(t);
+  }, interval);
+}
+
+function watchCountUp(selector) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      el.querySelectorAll('.bento-val, .stat-val').forEach(countUp);
+      obs.disconnect();
+    }
+  }, { threshold: .3 });
+  obs.observe(el);
+}
+watchCountUp('.about-bento');
+watchCountUp('.hero-stats');
+
+/* ============================================================
+   TIMELINE SLIDE-IN FROM LEFT
+   ============================================================ */
+document.querySelectorAll('.timeline').forEach(tl => {
+  tl.querySelectorAll('.tl-item').forEach((item, i) => {
+    item.classList.add('reveal-left');
+    item.style.transitionDelay = `${i * .1}s`;
+    revealObs.observe(item);
+  });
+});
+
+/* ============================================================
+   CURSOR SPOTLIGHT
+   ============================================================ */
+(function () {
+  const glow = document.createElement('div');
+  glow.className = 'cursor-glow';
+  document.body.appendChild(glow);
+  const half = 350;
+  let visible = false;
+  document.addEventListener('mousemove', e => {
+    glow.style.transform = `translate(${e.clientX - half}px, ${e.clientY - half}px)`;
+    if (!visible) { glow.style.opacity = '1'; visible = true; }
+  }, { passive: true });
+  document.addEventListener('mouseleave', () => {
+    glow.style.opacity = '0';
+    visible = false;
+  });
+})();
+
+/* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
+(function () {
+  const bar = document.createElement('div');
+  bar.className = 'scroll-progress';
+  document.body.appendChild(bar);
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+    bar.style.width = Math.min(pct, 100) + '%';
+  }, { passive: true });
+})();
+
+/* ============================================================
+   SECTION HEADER REVEALS
+   ============================================================ */
+document.querySelectorAll('.section-header, .section-hrow').forEach(el => {
+  const rect = el.getBoundingClientRect();
+  if (rect.top >= window.innerHeight) {
+    el.classList.add('reveal');
+    revealObs.observe(el);
+  }
 });

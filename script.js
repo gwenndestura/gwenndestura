@@ -27,14 +27,18 @@
 (function () {
   document.body.style.overflow = 'hidden';
   const splash = document.getElementById('splash');
-  // bar animation: 0.3s delay + 1.6s fill = ~1.9s; add 200ms pause = 2100ms
+  const gd = splash.querySelector('.splash-gd');
+  // GD animates in over 1.5s → hold briefly → blast out + fade bg
   setTimeout(function () {
-    splash.classList.add('splash-exit');
-    splash.addEventListener('transitionend', function () {
-      splash.remove();
-      document.body.style.overflow = '';
-    }, { once: true });
-  }, 2100);
+    gd.classList.add('gd-exit');               // GD scales up + fades (0.5s)
+    setTimeout(function () {
+      splash.classList.add('splash-exit');     // bg fades (0.45s)
+      setTimeout(function () {
+        splash.remove();
+        document.body.style.overflow = '';
+      }, 460);
+    }, 250);
+  }, 1600);
 })();
 
 /* ============================================================

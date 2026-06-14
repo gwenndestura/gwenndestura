@@ -71,54 +71,36 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform .75s cubic-bezier(.7, 0, .3, 1);
+  transition: opacity .45s ease;
 }
 #splash.splash-exit {
-  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
 }
-.splash-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  animation: splashFadeIn .5s ease forwards;
-}
-@keyframes splashFadeIn {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.splash-logo {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-}
-.splash-name {
+.splash-gd {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(8rem, 22vw, 15rem);
   font-weight: 800;
-  color: var(--text);
-  letter-spacing: -.03em;
+  color: var(--accent);
+  letter-spacing: -.05em;
+  line-height: 1;
+  user-select: none;
+  animation: splashGDIn 1.5s cubic-bezier(.4, 0, .2, 1) forwards;
 }
-.splash-bar {
-  display: block;
-  width: 200px;
-  height: 2px;
-  background: var(--border);
-  border-radius: 2px;
-  overflow: hidden;
+.splash-gd.gd-exit {
+  animation: splashGDOut .5s ease forwards;
 }
-.splash-bar-fill {
-  display: block;
-  height: 100%;
-  width: 0;
-  background: var(--accent);
-  border-radius: 2px;
-  animation: splashBarLoad 1.6s ease forwards;
-  animation-delay: .3s;
+@keyframes splashGDIn {
+  0%   { opacity: 0; transform: scale(.75); }
+  40%  { opacity: 1; transform: scale(1.04); }
+  55%  { transform: scale(1); }
+  78%  { transform: scale(1); }
+  90%  { transform: scale(1.07); }
+  100% { opacity: 1; transform: scale(1); }
 }
-@keyframes splashBarLoad {
-  from { width: 0; }
-  to   { width: 100%; }
+@keyframes splashGDOut {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(1.7); }
 }
 
 /* Grid lines */

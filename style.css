@@ -78,7 +78,7 @@ body {
   pointer-events: none;
 }
 .splash-gd {
-  width: clamp(7rem, 20vw, 12rem);
+  width: clamp(10rem, 28vw, 18rem);
   height: auto;
   user-select: none;
   animation: splashGDIn 1.5s cubic-bezier(.4, 0, .2, 1) forwards;

@@ -151,7 +151,6 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.1; }
 /* Glass cards in dark mode */
 [data-theme="dark"] .stack-panel,
 [data-theme="dark"] .pcard,
-[data-theme="dark"] .bento-tile,
 [data-theme="dark"] .soc-card,
 [data-theme="dark"] .award-card,
 [data-theme="dark"] .cert-card,
@@ -668,66 +667,6 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.1; }
   line-height: 1.75;
   align-self: end;
 }
-
-/* ============================================================
-   ABOUT
-   ============================================================ */
-.about-section { background: var(--bg2); }
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 52px;
-  align-items: start;
-}
-.about-text p {
-  font-size: .95rem;
-  color: var(--text2);
-  line-height: 1.85;
-  margin-bottom: 16px;
-}
-.about-text p:last-child { margin-bottom: 0; }
-.about-text strong { color: var(--accent); font-weight: 600; }
-
-.about-bento {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-.bento-tile {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--rl);
-  padding: 20px 18px;
-  transition: all var(--t);
-  position: relative;
-  overflow: hidden;
-}
-.bento-tile::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  opacity: 0;
-  transition: opacity var(--t);
-}
-.bento-tile:hover { border-color: var(--border-h); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
-.bento-tile:hover::before { opacity: 1; }
-.bento-val {
-  font-family: 'Syne', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 800;
-  letter-spacing: -.03em;
-  color: var(--accent);
-  line-height: 1;
-  margin-bottom: 5px;
-  display: block;
-}
-.bento-val-sm { font-size: 1.5rem; }
-.bento-lbl { font-size: .76rem; font-weight: 500; color: var(--text3); }
-.bento-wide { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; }
-.bento-wide .bento-val { white-space: nowrap; }
 
 /* ============================================================
    STACK
@@ -1598,7 +1537,6 @@ a.meta-item:hover { color: var(--accent); }
    ============================================================ */
 @media (max-width: 1024px) {
   .hero-inner { grid-template-columns: 300px 1fr; gap: 48px; }
-  .about-grid { grid-template-columns: 1fr; }
   .cert-grid { grid-template-columns: repeat(2, 1fr); }
   .stack-panels { grid-template-columns: 1fr; }
   .section-hrow { grid-template-columns: 1fr; gap: 10px; margin-bottom: 36px; }

@@ -103,6 +103,22 @@ body {
 
 
 /* ============================================================
+   CURSOR SPOTLIGHT
+   ============================================================ */
+.cursor-glow {
+  position: fixed;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity .4s ease;
+  mix-blend-mode: screen;
+}
+[data-theme="light"] .cursor-glow { mix-blend-mode: multiply; }
+
+/* ============================================================
    SCROLL PROGRESS
    ============================================================ */
 .scroll-progress {
@@ -1221,24 +1237,24 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.1; }
 }
 .contact-heading {
   position: relative; z-index: 1;
-  margin-bottom: 56px;
+  margin-bottom: 32px;
 }
-.contact-heading .section-num { justify-content: center; margin-bottom: 20px; }
+.contact-heading .section-num { justify-content: center; margin-bottom: 12px; }
 .contact-heading .section-num::after { display: none; }
 .contact-display {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  font-size: clamp(1.8rem, 3.6vw, 3rem);
   font-weight: 800;
   letter-spacing: -.04em;
-  line-height: 1.0;
+  line-height: 1.05;
   color: var(--text);
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 .contact-tagline {
-  font-size: .92rem;
+  font-size: .88rem;
   color: var(--text2);
   line-height: 1.7;
-  max-width: 480px;
+  max-width: 440px;
   margin: 0 auto;
 }
 
@@ -1251,8 +1267,8 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.1; }
   font-size: clamp(.95rem, 1.8vw, 1.3rem);
   font-weight: 500;
   color: var(--text2);
-  margin-bottom: 44px;
-  padding: 14px 28px;
+  margin-bottom: 28px;
+  padding: 11px 24px;
   border: 1px solid var(--border);
   border-radius: 9999px;
   background: var(--card);
@@ -1282,7 +1298,7 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.1; }
   position: relative; z-index: 1;
   width: 100%; height: 1px;
   background: var(--border);
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 .contact-meta {
   position: relative; z-index: 1;
@@ -1291,7 +1307,7 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.1; }
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 .meta-item {
   display: flex; align-items: center; gap: 7px;
@@ -1553,7 +1569,7 @@ a.meta-item:hover { color: var(--accent); }
   .hero-inner { grid-template-columns: 1fr; gap: 40px; }
   .hero-photo-col { max-width: 320px; }
   .hero-name { font-size: clamp(3rem, 11vw, 5rem); }
-  .contact-display { font-size: clamp(2.2rem, 9vw, 3.2rem); }
+  .contact-display { font-size: clamp(1.5rem, 7vw, 2.2rem); }
   .contact-meta { gap: 12px; }
   .meta-sep { display: none; }
 }

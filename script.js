@@ -601,6 +601,25 @@ document.querySelectorAll('.timeline').forEach(tl => {
 
 
 /* ============================================================
+   CURSOR SPOTLIGHT
+   ============================================================ */
+(function () {
+  const glow = document.createElement('div');
+  glow.className = 'cursor-glow';
+  document.body.appendChild(glow);
+  const half = 350;
+  let visible = false;
+  document.addEventListener('mousemove', e => {
+    glow.style.transform = `translate(${e.clientX - half}px, ${e.clientY - half}px)`;
+    if (!visible) { glow.style.opacity = '1'; visible = true; }
+  }, { passive: true });
+  document.addEventListener('mouseleave', () => {
+    glow.style.opacity = '0';
+    visible = false;
+  });
+})();
+
+/* ============================================================
    SCROLL PROGRESS BAR
    ============================================================ */
 (function () {

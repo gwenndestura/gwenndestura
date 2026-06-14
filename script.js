@@ -104,7 +104,7 @@ const projects = [
     tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/gwenndestura/LiPHt.git',
     live: 'https://lipht-advocacy.vercel.app',
-    img: 'assets/projects/LiPHt.png',
+    img: 'assets/projects/liPHt.png',
     bg: 'linear-gradient(135deg,#064e3b,#059669)',
     date: '2024',
     type: 'project',

@@ -65,6 +65,7 @@ const projects = [
     tech: ['Python', 'Flask', 'PyTorch', 'OpenCV', 'NLP'],
     github: 'https://github.com/gwenndestura/VeriFeed.git',
     live: 'https://veri-feed-frontend.vercel.app',
+    img: 'assets/projects/VeriFeed.png',
     bg: 'linear-gradient(135deg,#1a0533,#7c3aad)',
     date: '2024',
     type: 'project',
@@ -77,6 +78,7 @@ const projects = [
     tech: ['Vue 3', 'Vite', 'D3.js', 'Node.js'],
     github: 'https://github.com/gwenndestura/AutomaticQuatro.git',
     live: 'https://automaticquatro.vercel.app/',
+    img: 'assets/projects/AutomaticQuatro.png',
     bg: 'linear-gradient(135deg,#0f2027,#2c5364)',
     date: '2024',
     type: 'project',
@@ -89,6 +91,7 @@ const projects = [
     tech: ['Django', 'Vue.js', 'MySQL', 'Tailwind CSS'],
     github: 'https://github.com/gwenndestura/BeanThere.git',
     live: 'https://bean-there-cd.vercel.app',
+    img: 'assets/projects/BeanThere.png',
     bg: 'linear-gradient(135deg,#2d1b0e,#c17f4a)',
     date: '2024',
     type: 'project',
@@ -101,6 +104,7 @@ const projects = [
     tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/gwenndestura/LiPHt.git',
     live: 'https://lipht-advocacy.vercel.app',
+    img: 'assets/projects/LiPHt.png',
     bg: 'linear-gradient(135deg,#064e3b,#059669)',
     date: '2024',
     type: 'project',
@@ -113,6 +117,7 @@ const projects = [
     tech: ['Figma', 'UI/UX Design'],
     figma: 'https://www.figma.com/design/9wy2qnyVTCscYROpkCiRaL/HealthLine?node-id=0-1&t=ATYtnM6yu5Ewhr5T-1',
     proto: 'https://www.figma.com/proto/9wy2qnyVTCscYROpkCiRaL/HealthLine?node-id=0-1&t=ATYtnM6yu5Ewhr5T-1',
+    img: 'assets/projects/HealthLine.png',
     bg: 'linear-gradient(135deg,#0c2461,#4a69bd)',
     date: '2024',
     type: 'prototype',
@@ -125,6 +130,7 @@ const projects = [
     tech: ['Figma', 'UI/UX Design'],
     figma: 'https://www.figma.com/design/cd8VLOU8Sun2EPsPw0gApQ/mooji?node-id=0-1&t=375atgmqKy3hZJmH-1',
     proto: 'https://www.figma.com/proto/cd8VLOU8Sun2EPsPw0gApQ/mooji?node-id=14-2654&starting-point-node-id=14%3A2654&t=HtWaTJW4sH4ynYd1-1',
+    img: 'assets/projects/Mooji.png',
     bg: 'linear-gradient(135deg,#4a0072,#ce93d8)',
     date: '2024',
     type: 'prototype',
@@ -137,6 +143,7 @@ const projects = [
     tech: ['Figma', 'UI/UX Design'],
     figma: 'https://www.figma.com/design/hieG68XrBAf66lL4BeMYjI/Zapp?node-id=0-1&t=4cGijuZrbIdTaqDX-1',
     proto: 'https://www.figma.com/proto/hieG68XrBAf66lL4BeMYjI/Zapp?node-id=0-1&t=4cGijuZrbIdTaqDX-1',
+    img: 'assets/projects/Zapp.png',
     bg: 'linear-gradient(135deg,#7f1d1d,#fca5a5)',
     date: '2024',
     type: 'prototype',
@@ -333,6 +340,9 @@ function closeModal() {
 function renderModal() {
   const p = projects[currentProj];
   modalPreview.style.background = p.bg;
+  modalPreview.style.backgroundImage = p.img ? `url(${p.img})` : '';
+  modalPreview.style.backgroundSize  = 'cover';
+  modalPreview.style.backgroundPosition = 'center top';
   if (modalPg)  modalPg.textContent  = `${String(currentProj + 1).padStart(2,'0')} / ${String(projects.length).padStart(2,'0')}`;
   if (modalNum) modalNum.textContent  = `PROJECT · ${p.num}`;
   modalTitle.textContent = p.title;

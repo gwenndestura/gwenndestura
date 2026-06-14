@@ -168,6 +168,19 @@ const projects = [
     date: '2024',
     type: 'prototype',
   },
+  {
+    num: '—',
+    title: 'gwenndestura',
+    cat: 'Portfolio · Web',
+    desc: 'Personal portfolio website built from scratch as a Computer Science student specializing in Intelligent Systems. Designed and developed with a focus on clean UI, dark/light theming, smooth scroll animations, interactive project modals, and bento-style layouts. Deployed on Vercel.',
+    tech: ['HTML', 'CSS', 'JavaScript', 'Vercel'],
+    github: 'https://github.com/gwenndestura/gwenndestura.git',
+    live: 'https://gwenndestura.vercel.app',
+    img: 'assets/projects/gwenndestura.png',
+    bg: 'linear-gradient(135deg,#070E1C,#1a3a6e)',
+    date: '2025',
+    type: 'project',
+  },
 ];
 
 /* ============================================================

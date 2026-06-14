@@ -520,33 +520,6 @@ if (nav) {
   }, { passive: true });
 }
 
-/* ============================================================
-   HERO BACKGROUND ORBS
-   ============================================================ */
-(function () {
-  const hero = document.getElementById('home');
-  if (!hero) return;
-  const orbs = [
-    { w: 560, h: 560, alpha: .17, top: '-140px', right: '6%',  dur: '11s', delay: '0s',  dir: 'normal' },
-    { w: 400, h: 400, alpha: .12, bottom: '-90px', left: '4%', dur: '13s', delay: '-5s', dir: 'reverse' },
-    { w: 300, h: 300, alpha: .09, top: '42%',  left: '42%',   dur: '16s', delay: '-9s', dir: 'alternate' },
-  ];
-  orbs.forEach(d => {
-    const el = document.createElement('div');
-    el.className = 'hero-orb';
-    el.style.cssText = [
-      `width:${d.w}px`, `height:${d.h}px`,
-      `filter:blur(80px)`,
-      `background:radial-gradient(circle, rgba(91,143,212,${d.alpha}) 0%, transparent 65%)`,
-      d.top    ? `top:${d.top}`       : '',
-      d.bottom ? `bottom:${d.bottom}` : '',
-      d.left   ? `left:${d.left}`     : '',
-      d.right  ? `right:${d.right}`   : '',
-      `animation:orbFloat ${d.dur} ease-in-out ${d.delay} infinite ${d.dir}`,
-    ].filter(Boolean).join(';');
-    hero.insertBefore(el, hero.firstChild);
-  });
-})();
 
 /* ============================================================
    3D CARD TILT

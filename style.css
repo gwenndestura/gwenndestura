@@ -101,25 +101,6 @@ body {
   to   { opacity: 0; transform: scale(1.7); }
 }
 
-/* ============================================================
-   CURSOR SPOTLIGHT
-   ============================================================ */
-.cursor-glow {
-  position: fixed;
-  top: 0; left: 0;
-  width: 700px;
-  height: 700px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity .5s ease;
-  will-change: transform;
-}
-[data-theme="light"] .cursor-glow {
-  background: radial-gradient(circle, rgba(45,99,176,.04) 0%, transparent 60%);
-}
 
 /* ============================================================
    SCROLL PROGRESS
@@ -392,7 +373,7 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.1; }
   letter-spacing: -.04em;
   margin-bottom: 24px;
 }
-.hero-name span { display: block; }
+.hero-name > span { display: block; }
 .n-white { color: var(--text); }
 .n-grad {
   background: linear-gradient(135deg, #7AABEE 0%, #B8D4F5 45%, #91C3F0 100%);

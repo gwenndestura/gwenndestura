@@ -159,7 +159,7 @@ const projects = [
     num: '07',
     title: 'Zapp',
     cat: 'UI/UX · Mobile Prototype',
-    desc: 'High-fidelity prototype for a fast productivity app. Designed for speed and minimal friction with a bold visual identity, gesture-driven navigation, and streamlined task management.',
+    desc: 'High-fidelity mobile prototype for an e-commerce and online shopping application. Features a bold visual identity, intuitive product browsing, streamlined checkout flows, and gesture-driven navigation.',
     tech: ['Figma', 'UI/UX Design'],
     figma: 'https://www.figma.com/design/hieG68XrBAf66lL4BeMYjI/Zapp?node-id=0-1&t=4cGijuZrbIdTaqDX-1',
     proto: 'https://www.figma.com/proto/hieG68XrBAf66lL4BeMYjI/Zapp?node-id=0-1&t=4cGijuZrbIdTaqDX-1',

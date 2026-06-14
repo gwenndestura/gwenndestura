@@ -22,6 +22,22 @@
 })();
 
 /* ============================================================
+   SPLASH SCREEN
+   ============================================================ */
+(function () {
+  document.body.style.overflow = 'hidden';
+  const splash = document.getElementById('splash');
+  // bar animation: 0.3s delay + 1.6s fill = ~1.9s; add 200ms pause = 2100ms
+  setTimeout(function () {
+    splash.classList.add('splash-exit');
+    splash.addEventListener('transitionend', function () {
+      splash.remove();
+      document.body.style.overflow = '';
+    }, { once: true });
+  }, 2100);
+})();
+
+/* ============================================================
    THEME — dark default, persisted to localStorage
    ============================================================ */
 const html = document.documentElement;

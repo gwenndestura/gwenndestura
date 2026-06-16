@@ -78,7 +78,7 @@ if (themeToggle) {
    ============================================================ */
 const projects = [
   {
-    num: '01',
+    num: '06',
     title: 'VeriFeed',
     cat: 'AI · ML · Browser Extension',
     desc: 'Deepfake detection browser extension achieving 92.67% accuracy via ResNeXt50 + BiLSTM hybrid model. Real-time HOG-based frame analysis at 5 FPS with a bilingual EN/FIL chatbot at 95% intent accuracy.',
@@ -91,7 +91,7 @@ const projects = [
     type: 'project',
   },
   {
-    num: '02',
+    num: '07',
     title: 'AutomaticQuatro',
     cat: 'Web App · Education',
     desc: 'Interactive simulator for DFA, PDA, and CFG with animated step-by-step D3.js visualizations, zoom/pan controls, real-time regex validation, and dual problem support.',
@@ -104,7 +104,7 @@ const projects = [
     type: 'project',
   },
   {
-    num: '03',
+    num: '04',
     title: 'Bean There',
     cat: 'Full-Stack · Web App',
     desc: 'Full-stack café directory with authentication, reviews, and CRUD operations. Optimized relational schema for users, cafés, and products with real-time search and filtering.',
@@ -117,7 +117,7 @@ const projects = [
     type: 'project',
   },
   {
-    num: '04',
+    num: '05',
     title: 'liPHt',
     cat: 'Web · Advocacy',
     desc: 'Digital advocacy platform promoting social causes and community awareness. Clean, accessible design for campaigns and community engagement with a focus on mobile usability.',
@@ -130,7 +130,7 @@ const projects = [
     type: 'project',
   },
   {
-    num: '05',
+    num: '03',
     title: 'HealthLine',
     cat: 'UI/UX · Prototype',
     desc: 'UI/UX prototype for a health services platform connecting patients to healthcare providers. Focused on accessibility, clear information hierarchy, and intuitive appointment flows.',
@@ -143,7 +143,7 @@ const projects = [
     type: 'prototype',
   },
   {
-    num: '06',
+    num: '02',
     title: 'Mooji',
     cat: 'UI/UX · Mobile Prototype',
     desc: 'Mood-tracking and journaling app prototype. Expressive visual design focused on emotional wellness through intuitive interactions, playful UI language, and calming color palettes.',
@@ -156,7 +156,7 @@ const projects = [
     type: 'prototype',
   },
   {
-    num: '07',
+    num: '01',
     title: 'Zapp',
     cat: 'UI/UX · Mobile Prototype',
     desc: 'High-fidelity mobile prototype for an e-commerce and online shopping application. Features a bold visual identity, intuitive product browsing, streamlined checkout flows, and gesture-driven navigation.',
@@ -169,7 +169,7 @@ const projects = [
     type: 'prototype',
   },
   {
-    num: '—',
+    num: '08',
     title: 'gwenndestura',
     cat: 'Portfolio · Web',
     desc: 'Personal portfolio website built from scratch as a Computer Science student specializing in Intelligent Systems. Designed and developed with a focus on clean UI, dark/light theming, smooth scroll animations, interactive project modals, and bento-style layouts. Deployed on Vercel.',

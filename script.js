@@ -241,23 +241,7 @@ const revealObs = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-/* ============================================================
-   PARALLAX — hero photo
-   ============================================================ */
-const heroPhoto = document.getElementById('heroPhoto');
-if (heroPhoto) {
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        const y = window.scrollY;
-        heroPhoto.style.transform = `translate3d(0, ${y * 0.12}px, 0)`;
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
-}
+
 
 /* ============================================================
    TYPEWRITER

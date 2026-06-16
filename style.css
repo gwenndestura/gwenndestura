@@ -816,7 +816,7 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.1; }
 }
 .feat-ghost-num {
   font-family: 'Syne', sans-serif;
-  font-size: 7rem;
+  font-size: 3.5rem;
   font-weight: 800;
   color: var(--border);
   position: absolute;

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/gdlogo.png" width="180" alt="GD Logo" />
+<img src="assets/header.png" width="800" alt="Princess Gwenn Destura" />
 
 <br/><br/>
 

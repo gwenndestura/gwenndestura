@@ -64,6 +64,7 @@ function svgMoon() {
 
 const savedTheme = localStorage.getItem('pgd-theme') || 'dark';
 applyTheme(savedTheme);
+// mobile sync happens after themeToggleMobile is defined below
 
 if (themeToggle) {
   themeToggle.addEventListener('click', () => {
@@ -195,13 +196,13 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 const hamburger  = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 
+/* Mobile menu toggle */
 if (hamburger && mobileMenu) {
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     mobileMenu.classList.toggle('open');
   });
-
-  mobileMenu.querySelectorAll('.nav-link').forEach(link => {
+  mobileMenu.querySelectorAll('.mob-link').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');
       mobileMenu.classList.remove('open');
@@ -209,23 +210,111 @@ if (hamburger && mobileMenu) {
   });
 }
 
+/* Mobile theme toggle */
+const themeToggleMobile = document.getElementById('themeToggleMobile');
+function syncMobileTheme(theme) {
+  if (themeToggleMobile) {
+    themeToggleMobile.innerHTML = theme === 'dark' ? svgSun() : svgMoon();
+  }
+}
+syncMobileTheme(savedTheme);
+if (themeToggleMobile) {
+  themeToggleMobile.addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    syncMobileTheme(next);
+    localStorage.setItem('pgd-theme', next);
+  });
+}
+
 /* ============================================================
-   SCROLL SPY — active nav dot
+   SCROLL SPY + MOVING SIDE NAV INDICATOR
    ============================================================ */
-const sections = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.nav-link[data-sec]');
+const sections      = document.querySelectorAll('section[id]');
+const snavItems     = document.querySelectorAll('.snav-item[data-sec]');
+const snavTrack     = document.getElementById('snavTrack');
+const snavIndicator = document.getElementById('snavIndicator');
+const snavActiveIcon = document.getElementById('snavActiveIcon');
+
+const SECTION_ICONS = {
+  home: '<path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/>',
+  stack: '<rect x="2" y="3" width="20" height="6" rx="1"/><rect x="2" y="10" width="20" height="6" rx="1"/><rect x="2" y="17" width="20" height="4" rx="1"/>',
+  projects: '<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>',
+  experience: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>',
+  achievements: '<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17a2 2 0 0 1-2 2H6"/><path d="M14 14.66V17a2 2 0 0 1 2 2h2"/><path d="M6 2v7a6 6 0 0 0 12 0V2"/><line x1="12" y1="2" x2="12" y2="9"/>',
+  contact: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',
+};
+
+function getSnavDotCenter(sectionId) {
+  const item = document.querySelector(`.snav-item[data-sec="${sectionId}"]`);
+  if (!item || !snavTrack) return null;
+  const dot = item.querySelector('.snav-dot');
+  if (!dot) return null;
+  const trackRect = snavTrack.getBoundingClientRect();
+  const dotRect   = dot.getBoundingClientRect();
+  return dotRect.top + dotRect.height / 2 - trackRect.top;
+}
+
+function updateSnavIndicator(sectionId, instant) {
+  if (!snavIndicator || !snavTrack) return;
+  const center = getSnavDotCenter(sectionId);
+  if (center === null) return;
+
+  if (instant) {
+    snavIndicator.style.transition = 'none';
+    snavIndicator.style.top = center + 'px';
+    if (snavActiveIcon && SECTION_ICONS[sectionId]) {
+      snavActiveIcon.innerHTML = SECTION_ICONS[sectionId];
+    }
+    /* re-enable transitions after the instant snap */
+    requestAnimationFrame(() => {
+      snavIndicator.style.transition = '';
+    });
+    return;
+  }
+
+  /* close → move → open */
+  snavIndicator.classList.add('closing');
+
+  setTimeout(() => {
+    /* swap icon while hidden */
+    if (snavActiveIcon && SECTION_ICONS[sectionId]) {
+      snavActiveIcon.innerHTML = SECTION_ICONS[sectionId];
+    }
+    /* jump to new position (no slide transition while closed) */
+    snavIndicator.style.transition = 'none';
+    snavIndicator.style.top = center + 'px';
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        snavIndicator.style.transition = '';
+        snavIndicator.classList.remove('closing');
+      });
+    });
+  }, 190); /* matches CSS 0.18s + tiny buffer */
+}
+
+let activeSec = 'home';
 
 const spy = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      navLinks.forEach(l => l.classList.remove('active'));
-      const match = document.querySelector(`.nav-link[data-sec="${entry.target.id}"]`);
+      activeSec = entry.target.id;
+      snavItems.forEach(i => i.classList.remove('active'));
+      const match = document.querySelector(`.snav-item[data-sec="${activeSec}"]`);
       if (match) match.classList.add('active');
+      updateSnavIndicator(activeSec, false);
     }
   });
 }, { rootMargin: '-40% 0px -55% 0px' });
 
 sections.forEach(s => spy.observe(s));
+
+/* Reposition indicator on resize — instant, no animation */
+window.addEventListener('resize', () => updateSnavIndicator(activeSec, true), { passive: true });
+
+/* Initial position after layout settles — instant */
+requestAnimationFrame(() => updateSnavIndicator('home', true));
 
 /* ============================================================
    SCROLL REVEAL

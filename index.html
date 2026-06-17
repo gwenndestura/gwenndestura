@@ -18,37 +18,50 @@
   <img src="assets/gdlogo.png" alt="GD" class="splash-gd" />
 </div>
 
-<!-- ===================== NAV ===================== -->
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#home" class="nav-logo">
-      <img src="assets/gdlogo.png" alt="GD" />
-      <span>gwenndestura</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#home"         class="nav-link" data-sec="home">Home</a></li>
-      <li><a href="#stack"        class="nav-link" data-sec="stack">Stack</a></li>
-      <li><a href="#projects"     class="nav-link" data-sec="projects">Projects</a></li>
-      <li><a href="#experience"   class="nav-link" data-sec="experience">Experience</a></li>
-      <li><a href="#achievements" class="nav-link" data-sec="achievements">Achievements</a></li>
-      <li><a href="#contact"      class="nav-link" data-sec="contact">Contact</a></li>
-    </ul>
-    <div class="nav-actions">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+<!-- ===================== SIDE NAV ===================== -->
+<nav class="snav" id="snav">
+  <div class="snav-track" id="snavTrack">
+
+    <!-- Moving indicator — JS positions this -->
+    <div class="snav-indicator" id="snavIndicator" aria-hidden="true">
+      <div class="snav-ind-ring"></div>
+      <div class="snav-ind-inner">
+        <svg id="snavActiveIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></svg>
+      </div>
     </div>
+
+    <a href="#home"         class="snav-item" data-sec="home">        <span class="snav-dot"></span><span class="snav-label">> Home</span></a>
+    <a href="#stack"        class="snav-item" data-sec="stack">       <span class="snav-dot"></span><span class="snav-label">> Stack</span></a>
+    <a href="#projects"     class="snav-item" data-sec="projects">    <span class="snav-dot"></span><span class="snav-label">> Projects</span></a>
+    <a href="#experience"   class="snav-item" data-sec="experience">  <span class="snav-dot"></span><span class="snav-label">> Experience</span></a>
+    <a href="#achievements" class="snav-item" data-sec="achievements"><span class="snav-dot"></span><span class="snav-label">> Achievements</span></a>
+    <a href="#contact"      class="snav-item" data-sec="contact">     <span class="snav-dot"></span><span class="snav-label">> Contact</span></a>
   </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#home"         class="nav-link">HOME</a>
-    <a href="#stack"        class="nav-link">STACK</a>
-    <a href="#projects"     class="nav-link">PROJECTS</a>
-    <a href="#experience"   class="nav-link">EXPERIENCE</a>
-    <a href="#achievements" class="nav-link">ACHIEVEMENTS</a>
-    <a href="#contact"      class="nav-link">CONTACT</a>
-  </div>
+
+  <button class="snav-theme" id="themeToggle" aria-label="Toggle theme"></button>
 </nav>
+
+<!-- ===================== MOBILE TOPBAR ===================== -->
+<header class="topbar" id="topbar">
+  <a href="#home" class="topbar-logo">
+    <img src="assets/gdlogo.png" alt="GD" />
+    <span>gwenndestura</span>
+  </a>
+  <div class="topbar-right">
+    <button class="snav-theme topbar-theme" id="themeToggleMobile" aria-label="Toggle theme"></button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home"         class="mob-link">Home</a>
+  <a href="#stack"        class="mob-link">Stack</a>
+  <a href="#projects"     class="mob-link">Projects</a>
+  <a href="#experience"   class="mob-link">Experience</a>
+  <a href="#achievements" class="mob-link">Achievements</a>
+  <a href="#contact"      class="mob-link">Contact</a>
+</div>
 
 
 <!-- ===================== HERO ===================== -->

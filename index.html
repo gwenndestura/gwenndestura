@@ -237,173 +237,256 @@
       <p class="section-hdesc reveal d1">Full-stack apps, AI/ML systems, and UI prototypes — click any card for details.</p>
     </div>
 
-    <!-- Featured project -->
-    <div class="featured reveal" data-project="0">
-      <div class="feat-preview">
-        <img src="assets/projects/VeriFeed.png" alt="VeriFeed preview" />
-        <div class="feat-preview-bg">
-          <span class="feat-prev-tag">★ FEATURED</span>
-        </div>
-      </div>
-      <div class="feat-info">
-        <span class="feat-ghost-num">06</span>
-        <h3 class="feat-title">VeriFeed</h3>
-        <p class="feat-desc">Deepfake detection browser extension — 92.67% accuracy via ResNeXt50 + BiLSTM. Real-time HOG-based frame analysis at 5 FPS. Bilingual EN/FIL chatbot at 95% intent accuracy.</p>
-        <div class="feat-tags">
-          <span class="ftag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt=""/>Python</span>
-          <span class="ftag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="" class="img-invert"/>Flask</span>
-          <span class="ftag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt=""/>PyTorch</span>
-          <span class="ftag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt=""/>JavaScript</span>
-          <span class="ftag">Chrome Extension</span>
-        </div>
-        <div class="feat-links">
-          <a href="https://github.com/gwenndestura/VeriFeed.git" target="_blank" class="btn-ghost-sm">GitHub</a>
-          <a href="https://veri-feed-frontend.vercel.app" target="_blank" class="btn-primary-sm">↗ Live</a>
-        </div>
-        <span class="feat-hint">CLICK TO VIEW →</span>
-      </div>
-    </div>
+    <!-- Two-column: left = repos sidebar, right = featured+filter+cards -->
+    <div class="projects-layout reveal">
 
-    <!-- Filter bar -->
-    <div class="filter-bar reveal">
-      <button class="f-tab active" data-filter="all">All</button>
-      <button class="f-tab" data-filter="project">Projects</button>
-      <button class="f-tab" data-filter="prototype">Prototypes</button>
-    </div>
+      <!-- LEFT: repos sidebar spanning full height -->
+      <aside class="repos-aside">
+        <div class="repos-panel">
+          <div class="repos-panel-hd">
+            <svg class="repos-gh-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <span class="repos-panel-title">Repositories</span>
+            <span class="repos-panel-count">5</span>
+          </div>
+          <div class="repos-list">
 
-    <!-- Cards grid -->
-    <div class="pcard-grid">
+            <a href="https://github.com/gwenndestura/gwenndestura" target="_blank" rel="noopener" class="repo-row">
+              <div class="repo-row-top">
+                <span class="repo-row-name">gwenndestura</span>
+                <span class="repo-vis">Public</span>
+              </div>
+              <div class="repo-row-meta">
+                <span class="repo-lang-item"><span class="repo-lang-dot" style="background:#e34c26"></span>HTML</span>
+                <span class="repo-updated">Jun 2025</span>
+              </div>
+            </a>
 
-      <div class="pcard reveal" data-type="project" data-project="7">
-        <div class="pcard-preview">
-          <img src="assets/projects/gwenndestura.png" alt="gwenndestura preview" />
-          <span class="pcard-num">08</span>
-          <button class="pcard-arr">↗</button>
-          <span class="pcard-date">Jun 2026</span>
+            <a href="https://github.com/gwenndestura/VeriFeed" target="_blank" rel="noopener" class="repo-row">
+              <div class="repo-row-top">
+                <span class="repo-row-name">VeriFeed</span>
+                <span class="repo-vis">Public</span>
+              </div>
+              <div class="repo-row-meta">
+                <span class="repo-lang-item"><span class="repo-lang-dot" style="background:#3572a5"></span>Python</span>
+                <span class="repo-updated">2024</span>
+              </div>
+            </a>
+
+            <a href="https://github.com/gwenndestura/AutomaticQuatro" target="_blank" rel="noopener" class="repo-row">
+              <div class="repo-row-top">
+                <span class="repo-row-name">AutomaticQuatro</span>
+                <span class="repo-vis">Public</span>
+              </div>
+              <div class="repo-row-meta">
+                <span class="repo-lang-item"><span class="repo-lang-dot" style="background:#41b883"></span>Vue</span>
+                <span class="repo-updated">May 2026</span>
+              </div>
+            </a>
+
+            <a href="https://github.com/gwenndestura/LiPHt" target="_blank" rel="noopener" class="repo-row">
+              <div class="repo-row-top">
+                <span class="repo-row-name">LiPHt</span>
+                <span class="repo-vis">Public</span>
+              </div>
+              <div class="repo-row-meta">
+                <span class="repo-lang-item"><span class="repo-lang-dot" style="background:#3178c6"></span>TypeScript</span>
+                <span class="repo-updated">Dec 2025</span>
+              </div>
+            </a>
+
+            <a href="https://github.com/gwenndestura/BeanThere" target="_blank" rel="noopener" class="repo-row">
+              <div class="repo-row-top">
+                <span class="repo-row-name">BeanThere</span>
+                <span class="repo-vis">Public</span>
+              </div>
+              <div class="repo-row-meta">
+                <span class="repo-lang-item"><span class="repo-lang-dot" style="background:#3572a5"></span>Python</span>
+                <span class="repo-updated">May 2025</span>
+              </div>
+            </a>
+
+          </div>
+          <a href="https://github.com/gwenndestura" target="_blank" rel="noopener" class="repos-view-all">View all on GitHub →</a>
         </div>
-        <div class="pcard-body">
-          <h3 class="pcard-title">gwenndestura</h3>
-          <p class="pcard-desc">Personal portfolio website built from scratch as a CS student. Features dark/light mode, scroll animations, project modals, and bento-style layouts. Deployed on Vercel.</p>
-          <div class="pcard-tags"><span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span><span class="ptag">Vercel</span></div>
-          <div class="pcard-links">
-            <a href="https://github.com/gwenndestura/gwenndestura.git" target="_blank" class="plink-gh">GitHub</a>
-            <a href="https://gwenndestura.vercel.app" target="_blank" class="plink-live">Live ↗</a>
+      </aside>
+
+      <!-- RIGHT: all project content -->
+      <div class="projects-left">
+
+        <!-- Featured project (shorter) -->
+        <div class="featured featured-sm" data-project="0">
+          <div class="feat-preview">
+            <img src="assets/projects/VeriFeed.png" alt="VeriFeed preview" />
+            <div class="feat-preview-bg">
+              <span class="feat-prev-tag">★ FEATURED</span>
+            </div>
+          </div>
+          <div class="feat-info">
+            <span class="feat-ghost-num">06</span>
+            <h3 class="feat-title">VeriFeed</h3>
+            <p class="feat-desc">Deepfake detection browser extension — 92.67% accuracy via ResNeXt50 + BiLSTM. Real-time HOG-based frame analysis at 5 FPS. Bilingual EN/FIL chatbot at 95% intent accuracy.</p>
+            <div class="feat-tags">
+              <span class="ftag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt=""/>Python</span>
+              <span class="ftag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="" class="img-invert"/>Flask</span>
+              <span class="ftag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt=""/>PyTorch</span>
+              <span class="ftag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt=""/>JavaScript</span>
+              <span class="ftag">Chrome Extension</span>
+              <span class="ftag">Microsoft Extension</span>
+              <span class="ftag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/railway/railway-original.svg" alt=""/>Railway</span>
+            </div>
+            <div class="feat-links">
+              <a href="https://github.com/gwenndestura/VeriFeed.git" target="_blank" class="btn-ghost-sm">GitHub</a>
+              <a href="https://veri-feed-frontend.vercel.app" target="_blank" class="btn-primary-sm">↗ Live</a>
+            </div>
+            <span class="feat-hint">CLICK TO VIEW →</span>
           </div>
         </div>
-      </div>
 
-      <div class="pcard reveal d1" data-type="project" data-project="1">
-        <div class="pcard-preview">
-          <img src="assets/projects/AutomaticQuatro.png" alt="AutomaticQuatro preview" />
-          <span class="pcard-num">07</span>
-          <button class="pcard-arr">↗</button>
-          <span class="pcard-date">May 2026</span>
+        <!-- Filter bar -->
+        <div class="filter-bar">
+          <button class="f-tab active" data-filter="all">All</button>
+          <button class="f-tab" data-filter="project">Projects</button>
+          <button class="f-tab" data-filter="prototype">Prototypes</button>
         </div>
-        <div class="pcard-body">
-          <h3 class="pcard-title">AutomaticQuatro</h3>
-          <p class="pcard-desc">Interactive DFA, PDA, and CFG simulator with animated D3.js visualizations, zoom/pan, and real-time regex validation.</p>
-          <div class="pcard-tags"><span class="ptag">Vue 3</span><span class="ptag">D3.js</span><span class="ptag">Vite</span><span class="ptag">Node.js</span></div>
-          <div class="pcard-links">
-            <a href="https://github.com/gwenndestura/AutomaticQuatro.git" target="_blank" class="plink-gh">GitHub</a>
-            <a href="https://automaticquatro.vercel.app/" target="_blank" class="plink-live">Live ↗</a>
+
+        <!-- Cards grid — 3 per row -->
+        <div class="pcard-grid">
+
+          <div class="pcard reveal" data-type="project" data-project="7">
+            <div class="pcard-preview">
+              <img src="assets/projects/gwenndestura.png" alt="gwenndestura preview" />
+              <span class="pcard-num">08</span>
+              <button class="pcard-arr">↗</button>
+              <span class="pcard-date">Jun 2026</span>
+            </div>
+            <div class="pcard-body">
+              <h3 class="pcard-title">gwenndestura</h3>
+              <p class="pcard-desc">Personal portfolio website built from scratch as a CS student. Features dark/light mode, scroll animations, project modals, and bento-style layouts. Deployed on Vercel.</p>
+              <div class="pcard-tags"><span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span><span class="ptag">Vercel</span></div>
+              <div class="pcard-links">
+                <a href="https://github.com/gwenndestura/gwenndestura.git" target="_blank" class="plink-gh">GitHub</a>
+                <a href="https://gwenndestura.vercel.app" target="_blank" class="plink-live">Live ↗</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="pcard reveal d2" data-type="project" data-project="3">
-        <div class="pcard-preview">
-          <img src="assets/projects/liPHt.png" alt="liPHt preview" />
-          <span class="pcard-num">05</span>
-          <button class="pcard-arr">↗</button>
-          <span class="pcard-date">Dec 2025</span>
-        </div>
-        <div class="pcard-body">
-          <h3 class="pcard-title">liPHt</h3>
-          <p class="pcard-desc">Digital advocacy platform promoting social causes and community awareness with a clean, accessible design for campaigns.</p>
-          <div class="pcard-tags"><span class="ptag">React</span><span class="ptag">TypeScript</span><span class="ptag">Vite</span><span class="ptag">Supabase</span><span class="ptag">Firebase</span><span class="ptag">Tailwind CSS</span><span class="ptag">Node.js</span></div>
-          <div class="pcard-links">
-            <a href="https://github.com/gwenndestura/LiPHt.git" target="_blank" class="plink-gh">GitHub</a>
-            <a href="https://lipht-advocacy.vercel.app" target="_blank" class="plink-live">Live ↗</a>
+          <div class="pcard reveal d1" data-type="project" data-project="1">
+            <div class="pcard-preview">
+              <img src="assets/projects/AutomaticQuatro.png" alt="AutomaticQuatro preview" />
+              <span class="pcard-num">07</span>
+              <button class="pcard-arr">↗</button>
+              <span class="pcard-date">May 2026</span>
+            </div>
+            <div class="pcard-body">
+              <h3 class="pcard-title">AutomaticQuatro</h3>
+              <p class="pcard-desc">Interactive DFA, PDA, and CFG simulator with animated D3.js visualizations, zoom/pan, and real-time regex validation.</p>
+              <div class="pcard-tags"><span class="ptag">Vue 3</span><span class="ptag">D3.js</span><span class="ptag">Vite</span><span class="ptag">Node.js</span></div>
+              <div class="pcard-links">
+                <a href="https://github.com/gwenndestura/AutomaticQuatro.git" target="_blank" class="plink-gh">GitHub</a>
+                <a href="https://automaticquatro.vercel.app/" target="_blank" class="plink-live">Live ↗</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="pcard reveal hidden-init" data-type="project" data-project="2">
-        <div class="pcard-preview">
-          <img src="assets/projects/BeanThere.png" alt="Bean There preview" />
-          <span class="pcard-num">04</span>
-          <button class="pcard-arr">↗</button>
-          <span class="pcard-date">May 2025</span>
-        </div>
-        <div class="pcard-body">
-          <h3 class="pcard-title">Bean There</h3>
-          <p class="pcard-desc">Full-stack café directory with auth, reviews, and CRUD. Optimized relational schema for users, cafés, and products with real-time search.</p>
-          <div class="pcard-tags"><span class="ptag">Django</span><span class="ptag">Vue.js</span><span class="ptag">MySQL</span><span class="ptag">Tailwind</span></div>
-          <div class="pcard-links">
-            <a href="https://github.com/gwenndestura/BeanThere.git" target="_blank" class="plink-gh">GitHub</a>
-            <a href="https://bean-there-cd.vercel.app" target="_blank" class="plink-live">Live ↗</a>
+          <div class="pcard reveal d2" data-type="project" data-project="3">
+            <div class="pcard-preview">
+              <img src="assets/projects/liPHt.png" alt="liPHt preview" />
+              <span class="pcard-num">05</span>
+              <button class="pcard-arr">↗</button>
+              <span class="pcard-date">Dec 2025</span>
+            </div>
+            <div class="pcard-body">
+              <h3 class="pcard-title">liPHt</h3>
+              <p class="pcard-desc">Digital advocacy platform promoting social causes and community awareness with a clean, accessible design for campaigns.</p>
+              <div class="pcard-tags"><span class="ptag">React</span><span class="ptag">TypeScript</span><span class="ptag">Vite</span><span class="ptag">Firebase</span><span class="ptag">Tailwind CSS</span><span class="ptag">Node.js</span></div>
+              <div class="pcard-links">
+                <a href="https://github.com/gwenndestura/LiPHt.git" target="_blank" class="plink-gh">GitHub</a>
+                <a href="https://lipht-advocacy.vercel.app" target="_blank" class="plink-live">Live ↗</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="pcard reveal d1 hidden-init" data-type="prototype" data-project="4">
-        <div class="pcard-preview">
-          <img src="assets/projects/HealthLine.png" alt="HealthLine preview" />
-          <span class="pcard-num">03</span>
-          <button class="pcard-arr">↗</button>
-          <span class="pcard-date">Dec 2024</span>
-        </div>
-        <div class="pcard-body">
-          <h3 class="pcard-title">HealthLine</h3>
-          <p class="pcard-desc">UI/UX prototype for a health services platform. Focused on accessibility, clear information hierarchy, and intuitive appointment flows.</p>
-          <div class="pcard-tags"><span class="ptag">Figma</span><span class="ptag">UI/UX</span></div>
-          <div class="pcard-links">
-            <a href="https://www.figma.com/design/9wy2qnyVTCscYROpkCiRaL/HealthLine?node-id=0-1&t=ATYtnM6yu5Ewhr5T-1" target="_blank" class="plink-gh">Figma</a>
-            <a href="https://www.figma.com/proto/9wy2qnyVTCscYROpkCiRaL/HealthLine?node-id=0-1&t=ATYtnM6yu5Ewhr5T-1" target="_blank" class="plink-live">Prototype ↗</a>
+          <div class="pcard reveal hidden-init" data-type="project" data-project="2">
+            <div class="pcard-preview">
+              <img src="assets/projects/BeanThere.png" alt="Bean There preview" />
+              <span class="pcard-num">04</span>
+              <button class="pcard-arr">↗</button>
+              <span class="pcard-date">May 2025</span>
+            </div>
+            <div class="pcard-body">
+              <h3 class="pcard-title">Bean There</h3>
+              <p class="pcard-desc">Full-stack café directory with auth, reviews, and CRUD. Optimized relational schema for users, cafés, and products with real-time search.</p>
+              <div class="pcard-tags"><span class="ptag">Django</span><span class="ptag">Vue.js</span><span class="ptag">MySQL</span><span class="ptag">Tailwind</span></div>
+              <div class="pcard-links">
+                <a href="https://github.com/gwenndestura/BeanThere.git" target="_blank" class="plink-gh">GitHub</a>
+                <a href="https://bean-there-cd.vercel.app" target="_blank" class="plink-live">Live ↗</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="pcard reveal d2 hidden-init" data-type="prototype" data-project="5">
-        <div class="pcard-preview">
-          <img src="assets/projects/Mooji.png" alt="Mooji preview" />
-          <span class="pcard-num">02</span>
-          <button class="pcard-arr">↗</button>
-          <span class="pcard-date">Nov 2024</span>
-        </div>
-        <div class="pcard-body">
-          <h3 class="pcard-title">Mooji</h3>
-          <p class="pcard-desc">Mood-tracking and journaling app prototype. Expressive visual design focused on emotional wellness through intuitive, playful interactions.</p>
-          <div class="pcard-tags"><span class="ptag">Figma</span><span class="ptag">UI/UX</span></div>
-          <div class="pcard-links">
-            <a href="https://www.figma.com/design/cd8VLOU8Sun2EPsPw0gApQ/mooji?node-id=0-1&t=375atgmqKy3hZJmH-1" target="_blank" class="plink-gh">Figma</a>
-            <a href="https://www.figma.com/proto/cd8VLOU8Sun2EPsPw0gApQ/mooji?node-id=14-2654&starting-point-node-id=14%3A2654&t=HtWaTJW4sH4ynYd1-1" target="_blank" class="plink-live">Prototype ↗</a>
+          <div class="pcard reveal d1 hidden-init" data-type="prototype" data-project="4">
+            <div class="pcard-preview">
+              <img src="assets/projects/HealthLine.png" alt="HealthLine preview" />
+              <span class="pcard-num">03</span>
+              <button class="pcard-arr">↗</button>
+              <span class="pcard-date">Dec 2024</span>
+            </div>
+            <div class="pcard-body">
+              <h3 class="pcard-title">HealthLine</h3>
+              <p class="pcard-desc">UI/UX prototype for a health services platform. Focused on accessibility, clear information hierarchy, and intuitive appointment flows.</p>
+              <div class="pcard-tags"><span class="ptag">Figma</span><span class="ptag">UI/UX</span></div>
+              <div class="pcard-links">
+                <a href="https://www.figma.com/design/9wy2qnyVTCscYROpkCiRaL/HealthLine?node-id=0-1&t=ATYtnM6yu5Ewhr5T-1" target="_blank" class="plink-gh">Figma</a>
+                <a href="https://www.figma.com/proto/9wy2qnyVTCscYROpkCiRaL/HealthLine?node-id=0-1&t=ATYtnM6yu5Ewhr5T-1" target="_blank" class="plink-live">Prototype ↗</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="pcard reveal hidden-init" data-type="prototype" data-project="6">
-        <div class="pcard-preview">
-          <img src="assets/projects/Zapp.png" alt="Zapp preview" />
-          <span class="pcard-num">01</span>
-          <button class="pcard-arr">↗</button>
-          <span class="pcard-date">Oct 2024</span>
-        </div>
-        <div class="pcard-body">
-          <h3 class="pcard-title">Zapp</h3>
-          <p class="pcard-desc">High-fidelity mobile prototype for an e-commerce and online shopping application. Bold visual identity, intuitive product browsing, and streamlined checkout flows.</p>
-          <div class="pcard-tags"><span class="ptag">Figma</span><span class="ptag">UI/UX</span></div>
-          <div class="pcard-links">
-            <a href="https://www.figma.com/design/hieG68XrBAf66lL4BeMYjI/Zapp?node-id=0-1&t=4cGijuZrbIdTaqDX-1" target="_blank" class="plink-gh">Figma</a>
-            <a href="https://www.figma.com/proto/hieG68XrBAf66lL4BeMYjI/Zapp?node-id=0-1&t=4cGijuZrbIdTaqDX-1" target="_blank" class="plink-live">Prototype ↗</a>
+          <div class="pcard reveal d2 hidden-init" data-type="prototype" data-project="5">
+            <div class="pcard-preview">
+              <img src="assets/projects/Mooji.png" alt="Mooji preview" />
+              <span class="pcard-num">02</span>
+              <button class="pcard-arr">↗</button>
+              <span class="pcard-date">Nov 2024</span>
+            </div>
+            <div class="pcard-body">
+              <h3 class="pcard-title">Mooji</h3>
+              <p class="pcard-desc">Mood-tracking and journaling app prototype. Expressive visual design focused on emotional wellness through intuitive, playful interactions.</p>
+              <div class="pcard-tags"><span class="ptag">Figma</span><span class="ptag">UI/UX</span></div>
+              <div class="pcard-links">
+                <a href="https://www.figma.com/design/cd8VLOU8Sun2EPsPw0gApQ/mooji?node-id=0-1&t=375atgmqKy3hZJmH-1" target="_blank" class="plink-gh">Figma</a>
+                <a href="https://www.figma.com/proto/cd8VLOU8Sun2EPsPw0gApQ/mooji?node-id=14-2654&starting-point-node-id=14%3A2654&t=HtWaTJW4sH4ynYd1-1" target="_blank" class="plink-live">Prototype ↗</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-    </div>
-    <div class="see-more-wrap">
-      <button class="btn-see-more" data-grid="pcard-grid">Show all projects ↓</button>
-    </div>
+          <div class="pcard reveal hidden-init" data-type="prototype" data-project="6">
+            <div class="pcard-preview">
+              <img src="assets/projects/Zapp.png" alt="Zapp preview" />
+              <span class="pcard-num">01</span>
+              <button class="pcard-arr">↗</button>
+              <span class="pcard-date">Oct 2024</span>
+            </div>
+            <div class="pcard-body">
+              <h3 class="pcard-title">Zapp</h3>
+              <p class="pcard-desc">High-fidelity mobile prototype for an e-commerce and online shopping application. Bold visual identity, intuitive product browsing, and streamlined checkout flows.</p>
+              <div class="pcard-tags"><span class="ptag">Figma</span><span class="ptag">UI/UX</span></div>
+              <div class="pcard-links">
+                <a href="https://www.figma.com/design/hieG68XrBAf66lL4BeMYjI/Zapp?node-id=0-1&t=4cGijuZrbIdTaqDX-1" target="_blank" class="plink-gh">Figma</a>
+                <a href="https://www.figma.com/proto/hieG68XrBAf66lL4BeMYjI/Zapp?node-id=0-1&t=4cGijuZrbIdTaqDX-1" target="_blank" class="plink-live">Prototype ↗</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="see-more-wrap">
+          <button class="btn-see-more" data-grid="pcard-grid">Show all projects ↓</button>
+        </div>
+
+      </div><!-- end .projects-left -->
+
+    </div><!-- end .projects-layout -->
+
   </div>
 </section>
 

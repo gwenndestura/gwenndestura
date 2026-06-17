@@ -1684,6 +1684,182 @@ a.meta-item:hover { color: var(--accent); }
 .reveal-left.visible { opacity: 1; transform: none; }
 
 /* ============================================================
+   REPOSITORIES WIDGET
+   ============================================================ */
+
+/* Projects section: repos sidebar (left) + projects col (right) */
+.projects-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.projects-left {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+/* Force 3-per-row inside the narrower left column */
+.projects-left .pcard-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+/* Shorter featured card */
+.featured-sm {
+  grid-template-columns: 1fr 1fr;
+}
+.featured-sm .feat-preview {
+  min-height: 180px;
+}
+.featured-sm .feat-ghost-num {
+  font-size: 3rem;
+  top: 10px;
+  right: 14px;
+}
+/* Repos sidebar stretches full height of left col */
+.repos-aside {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+.repos-aside .repos-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.repos-aside .repos-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Left panel — repo list */
+.repos-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  backdrop-filter: blur(16px) saturate(1.4);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+[data-theme="light"] .repos-panel {
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.repos-panel-hd {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 20px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.repos-gh-ico {
+  width: 18px;
+  height: 18px;
+  color: var(--text2);
+  flex-shrink: 0;
+}
+.repos-panel-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  color: var(--text);
+  flex: 1;
+}
+.repos-panel-count {
+  font-family: 'DM Mono', monospace;
+  font-size: .7rem;
+  color: var(--text2);
+  background: var(--accent-dim);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2px 10px;
+}
+
+.repos-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.repo-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  transition: background var(--t);
+}
+.repo-row:last-child { border-bottom: none; }
+.repo-row:hover { background: var(--accent-dim); }
+
+.repo-row-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.repo-row-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: .88rem;
+  color: var(--accent);
+  transition: color var(--t);
+}
+.repo-row:hover .repo-row-name { color: var(--accent2); }
+
+.repo-vis {
+  font-family: 'DM Mono', monospace;
+  font-size: .62rem;
+  color: var(--text3);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2px 8px;
+  flex-shrink: 0;
+}
+
+.repo-row-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.repo-lang-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'DM Mono', monospace;
+  font-size: .72rem;
+  color: var(--text2);
+}
+.repo-lang-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.repo-updated {
+  font-family: 'DM Mono', monospace;
+  font-size: .68rem;
+  color: var(--text3);
+}
+
+.repos-view-all {
+  display: block;
+  text-align: center;
+  padding: 14px;
+  font-family: 'DM Mono', monospace;
+  font-size: .72rem;
+  color: var(--accent);
+  text-decoration: none;
+  border-top: 1px solid var(--border);
+  transition: color var(--t), background var(--t);
+}
+.repos-view-all:hover { background: var(--accent-dim); color: var(--accent2); }
+
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
@@ -1698,6 +1874,9 @@ a.meta-item:hover { color: var(--accent); }
   .modal-box { grid-template-columns: 1fr; }
   .modal-left { display: none; }
   .modal-right { border-left: none; }
+  .projects-layout { grid-template-columns: 1fr; }
+  .repos-aside { align-self: auto; }
+  .projects-left .pcard-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
 }
 
 @media (max-width: 860px) {

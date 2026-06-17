@@ -332,6 +332,43 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.1; }
   color: var(--accent);
   flex-shrink: 0;
 }
+.snav-ind-logo {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: none;
+}
+
+/* Nav logo at the top */
+.snav-logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  position: relative;
+  flex-shrink: 0;
+  transition: border-color var(--t), box-shadow var(--t);
+  text-decoration: none;
+}
+.snav-logo::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px dashed var(--accent);
+  opacity: .45;
+  animation: snav-spin 14s linear infinite;
+  pointer-events: none;
+}
+.snav-logo img { width: 18px; height: 18px; object-fit: contain; }
+.snav-logo:hover {
+  border-color: var(--accent2);
+  box-shadow: 0 0 14px var(--accent-glow);
+}
 
 /* Theme toggle at the bottom */
 .snav-theme {
@@ -348,9 +385,36 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.1; }
   cursor: pointer;
   flex-shrink: 0;
   margin-top: 8px;
+  position: relative;
 }
 .snav-theme:hover { color: var(--accent); border-color: var(--accent); }
 .snav-theme svg { width: 13px; height: 13px; }
+
+/* Theme toggle tooltip */
+.snav-theme::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: calc(100% + 6px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--card-solid, #0F1822);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: .68rem;
+  white-space: nowrap;
+  color: var(--text2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+  z-index: 10;
+}
+[data-theme="light"] .snav-theme::before {
+  background: rgba(255,255,255,.95);
+  backdrop-filter: blur(8px);
+}
+.snav-theme:hover::before { opacity: 1; }
 
 /* ============================================================
    MOBILE TOPBAR (hidden on desktop)

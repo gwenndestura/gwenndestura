@@ -52,6 +52,7 @@ function applyTheme(theme) {
   if (themeToggle) {
     themeToggle.innerHTML = theme === 'dark' ? svgSun() : svgMoon();
     themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    themeToggle.setAttribute('data-tooltip', theme === 'dark' ? 'Light Mode' : 'Dark Mode');
   }
 }
 
@@ -245,6 +246,27 @@ const SECTION_ICONS = {
   contact: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',
 };
 
+function setSnavIcon(sectionId) {
+  if (!snavActiveIcon) return;
+  let logoImg = snavIndicator.querySelector('.snav-ind-logo');
+  if (sectionId === 'home') {
+    if (!logoImg) {
+      logoImg = document.createElement('img');
+      logoImg.className = 'snav-ind-logo';
+      logoImg.src = 'assets/gdlogo.png';
+      logoImg.alt = 'GD';
+      snavActiveIcon.parentNode.appendChild(logoImg);
+    }
+    logoImg.style.display = 'block';
+    snavActiveIcon.style.display = 'none';
+    snavActiveIcon.innerHTML = '';
+  } else {
+    if (logoImg) logoImg.style.display = 'none';
+    snavActiveIcon.style.display = '';
+    snavActiveIcon.innerHTML = SECTION_ICONS[sectionId] || '';
+  }
+}
+
 function getSnavDotCenter(sectionId) {
   const item = document.querySelector(`.snav-item[data-sec="${sectionId}"]`);
   if (!item || !snavTrack) return null;
@@ -263,9 +285,7 @@ function updateSnavIndicator(sectionId, instant) {
   if (instant) {
     snavIndicator.style.transition = 'none';
     snavIndicator.style.top = center + 'px';
-    if (snavActiveIcon && SECTION_ICONS[sectionId]) {
-      snavActiveIcon.innerHTML = SECTION_ICONS[sectionId];
-    }
+    setSnavIcon(sectionId);
     /* re-enable transitions after the instant snap */
     requestAnimationFrame(() => {
       snavIndicator.style.transition = '';
@@ -278,9 +298,7 @@ function updateSnavIndicator(sectionId, instant) {
 
   setTimeout(() => {
     /* swap icon while hidden */
-    if (snavActiveIcon && SECTION_ICONS[sectionId]) {
-      snavActiveIcon.innerHTML = SECTION_ICONS[sectionId];
-    }
+    setSnavIcon(sectionId);
     /* jump to new position (no slide transition while closed) */
     snavIndicator.style.transition = 'none';
     snavIndicator.style.top = center + 'px';

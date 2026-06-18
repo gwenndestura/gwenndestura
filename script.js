@@ -733,3 +733,30 @@ document.querySelectorAll('.section-header, .section-hrow').forEach(el => {
     revealObs.observe(el);
   }
 });
+
+/* ============================================================
+   FOOTER GRID BLOCKER — fixed overlay covers footer area so the
+   body::before grid (position:fixed z-index:0) doesn't show through
+   ============================================================ */
+(function () {
+  const footer = document.querySelector('.footer');
+  if (!footer) return;
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;left:0;right:0;background:var(--card-solid);z-index:0;pointer-events:none;display:none;transition:background var(--t,.3s)';
+  document.body.appendChild(overlay);
+  function sync() {
+    const r = footer.getBoundingClientRect();
+    const top = Math.max(0, r.top);
+    const bottom = Math.min(window.innerHeight, r.bottom);
+    if (bottom > top) {
+      overlay.style.top = top + 'px';
+      overlay.style.height = (bottom - top) + 'px';
+      overlay.style.display = 'block';
+    } else {
+      overlay.style.display = 'none';
+    }
+  }
+  window.addEventListener('scroll', sync, { passive: true });
+  window.addEventListener('resize', sync, { passive: true });
+  sync();
+})();

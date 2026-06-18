@@ -1432,6 +1432,68 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.1; }
 }
 
 /* ============================================================
+   GALLERY
+   ============================================================ */
+.gallery-section {
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+  transition: background var(--t);
+}
+.gallery-track-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+.gallery-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  will-change: transform;
+}
+.gallery-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0 4px;
+}
+.gallery-btn {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--t), border-color var(--t), color var(--t);
+}
+.gallery-btn:hover { border-color: var(--accent); color: var(--accent); }
+.gallery-item {
+  position: relative;
+  flex-shrink: 0;
+  width: 220px;
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(200, 210, 220, 0.18);
+  pointer-events: none;
+}
+
+/* ============================================================
    CONTACT
    ============================================================ */
 .contact-glow {

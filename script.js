@@ -735,17 +735,69 @@ document.querySelectorAll('.section-header, .section-hrow').forEach(el => {
 });
 
 /* ============================================================
-   FOOTER GRID BLOCKER — fixed overlay covers footer area so the
+   GALLERY — JS-driven infinite carousel with prev/next controls
+   ============================================================ */
+(function () {
+  const track = document.querySelector('.gallery-track');
+  const wrap  = document.querySelector('.gallery-track-wrap');
+  if (!track || !wrap) return;
+
+  const GAP       = 12;
+  const ITEM_W    = 220 + GAP;
+  const TOTAL     = 16; // original item count
+  const HALF_W    = TOTAL * ITEM_W;
+  const SPEED     = 0.6; // px per frame
+
+  let pos        = 0;
+  let paused     = false;
+  let pauseTimer = null;
+
+  function tick() {
+    if (!paused) {
+      pos += SPEED;
+      if (pos >= HALF_W) pos -= HALF_W;
+    }
+    track.style.transform = `translateX(${-pos}px)`;
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  function pauseTemp() {
+    paused = true;
+    clearTimeout(pauseTimer);
+    pauseTimer = setTimeout(() => { paused = false; }, 3000);
+  }
+
+  wrap.addEventListener('mouseenter', () => { paused = true; clearTimeout(pauseTimer); });
+  wrap.addEventListener('mouseleave', () => { if (!pauseTimer) paused = false; });
+
+  document.querySelector('.gallery-prev')?.addEventListener('click', () => {
+    pos -= ITEM_W;
+    if (pos < 0) pos += HALF_W;
+    pauseTemp();
+  });
+  document.querySelector('.gallery-next')?.addEventListener('click', () => {
+    pos += ITEM_W;
+    if (pos >= HALF_W) pos -= HALF_W;
+    pauseTemp();
+  });
+})();
+
+/* ============================================================
+   GRID BLOCKER — fixed overlays cover gallery + footer so the
    body::before grid (position:fixed z-index:0) doesn't show through
    ============================================================ */
 (function () {
-  const footer = document.querySelector('.footer');
-  if (!footer) return;
-  const overlay = document.createElement('div');
-  overlay.style.cssText = 'position:fixed;left:0;right:0;background:var(--card-solid);z-index:0;pointer-events:none;display:none;transition:background var(--t,.3s)';
-  document.body.appendChild(overlay);
-  function sync() {
-    const r = footer.getBoundingClientRect();
+  function makeOverlay(bg) {
+    const el = document.createElement('div');
+    el.style.cssText = 'position:fixed;left:0;right:0;z-index:0;pointer-events:none;display:none;transition:background var(--t,.3s)';
+    el.style.background = bg;
+    document.body.appendChild(el);
+    return el;
+  }
+  function syncOverlay(section, overlay) {
+    if (!section) return;
+    const r = section.getBoundingClientRect();
     const top = Math.max(0, r.top);
     const bottom = Math.min(window.innerHeight, r.bottom);
     if (bottom > top) {
@@ -755,6 +807,16 @@ document.querySelectorAll('.section-header, .section-hrow').forEach(el => {
     } else {
       overlay.style.display = 'none';
     }
+  }
+
+  const gallery = document.querySelector('.gallery-section');
+  const footer  = document.querySelector('.footer');
+  const galleryOv = makeOverlay('var(--bg)');
+  const footerOv  = makeOverlay('var(--card-solid)');
+
+  function sync() {
+    syncOverlay(gallery, galleryOv);
+    syncOverlay(footer,  footerOv);
   }
   window.addEventListener('scroll', sync, { passive: true });
   window.addEventListener('resize', sync, { passive: true });

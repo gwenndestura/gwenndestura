@@ -11,7 +11,7 @@
 BS Computer Science with Specialization in Intelligent Systems  
 De La Salle University – Dasmariñas
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-gwenndestura.vercel.app-2D63B0?style=for-the-badge&logo=vercel&logoColor=white)](https://gwenndestura.vercel.app/)
+⤷ ゛[![Portfolio](https://img.shields.io/badge/Portfolio-gwenndestura.vercel.app-2D63B0?style=for-the-badge&logo=vercel&logoColor=white)](https://gwenndestura.vercel.app/) ˎˊ˗
 
 <br/>
 

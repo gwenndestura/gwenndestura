@@ -1595,6 +1595,7 @@ a.c-row:hover .c-arrow { opacity: 1; transform: translate(2px,-2px); }
   padding: 18px 32px;
   font-family: 'DM Mono', monospace;
   font-size: .7rem; color: var(--text3);
+  text-align: center;
 }
 
 /* ============================================================

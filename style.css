@@ -1215,56 +1215,108 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.1; }
   gap: 48px;
   align-items: start;
 }
+
 .exp-col-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--accent);
   font-family: 'DM Mono', monospace;
-  letter-spacing: .06em;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  margin-bottom: 28px;
-  font-size: .8rem;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.exp-col-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
 }
 
+/* Timeline: vertical connector line via ::before on the wrapper */
 .timeline {
-  padding-left: 22px;
-  border-left: 2px solid var(--border);
   display: flex;
   flex-direction: column;
-  transition: border-color var(--t);
+  gap: 12px;
+  position: relative;
+  padding-left: 32px;
 }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 14px;
+  bottom: 14px;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--accent) 12%, var(--accent) 88%, transparent);
+  opacity: .3;
+}
+
+/* Each item is now a glass card */
 .tl-item {
   position: relative;
-  padding: 0 0 28px 26px;
+  padding: 16px 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  backdrop-filter: blur(12px) saturate(1.4);
+  transition: border-color var(--t), transform var(--t), box-shadow var(--t);
 }
-.tl-item:last-child { padding-bottom: 0; }
+[data-theme="light"] .tl-item {
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+.tl-item:last-child { margin-bottom: 0; }
+.tl-item:hover {
+  border-color: var(--border-h);
+  transform: translateX(4px);
+  box-shadow: -3px 0 0 var(--accent), var(--shadow);
+}
+
+/* Dot on the connector line */
 .tl-item::before {
   content: '';
   position: absolute;
-  left: -7px; top: 5px;
-  width: 12px; height: 12px;
+  left: -23px;
+  top: 18px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--accent);
   border: 2px solid var(--bg2);
-  transition: transform var(--t), background var(--t);
+  box-shadow: 0 0 6px var(--accent-glow);
+  transition: transform var(--t), box-shadow var(--t);
+  z-index: 1;
 }
-.tl-item:hover::before { transform: scale(1.35); }
+.tl-item:hover::before {
+  transform: scale(1.45);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
 
+/* Date as a pill badge */
 .tl-date {
+  display: inline-block;
+  background: var(--accent-dim);
+  border: 1px solid rgba(91,143,212,.22);
+  border-radius: 20px;
+  padding: 2px 10px;
   font-family: 'DM Mono', monospace;
-  font-size: .66rem;
+  font-size: .62rem;
   font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
+
 .tl-role {
   font-family: 'Syne', sans-serif;
-  font-size: .95rem;
+  font-size: .92rem;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 }
 .tl-header {
   display: flex;
@@ -1273,28 +1325,43 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.1; }
   margin-bottom: 8px;
 }
 .tl-logo {
-  width: 36px; height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: 8px;
   object-fit: contain;
-  background: var(--card);
+  background: var(--bg);
   border: 1px solid var(--border);
   padding: 3px;
   flex-shrink: 0;
-  transition: border-color var(--t), background var(--t);
+  transition: border-color var(--t);
 }
 .tl-item:hover .tl-logo { border-color: var(--border-h); }
-.tl-org { font-size: .84rem; color: var(--text2); margin-bottom: 0; }
-.tl-note { font-size: .78rem; color: var(--text3); font-style: italic; }
+.tl-org { font-size: .82rem; color: var(--text2); margin-bottom: 0; }
+.tl-note { font-size: .76rem; color: var(--text3); font-style: italic; }
+
 .tl-bullets {
-  list-style: disc;
-  padding-left: 16px;
-  margin-left: 46px; /* 36px logo + 10px gap — aligns with role title */
+  list-style: none;
+  padding-left: 0;
+  margin-left: 44px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
   margin-top: 8px;
 }
-.tl-bullets li { font-size: .82rem; color: var(--text2); line-height: 1.55; }
+.tl-bullets li {
+  font-size: .81rem;
+  color: var(--text2);
+  line-height: 1.55;
+  padding-left: 14px;
+  position: relative;
+}
+.tl-bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  opacity: .7;
+}
 /* See More — grid-level */
 .hidden-init { display: none; }
 .see-more-wrap {

@@ -1215,108 +1215,56 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.1; }
   gap: 48px;
   align-items: start;
 }
-
 .exp-col-title {
-  font-family: 'DM Mono', monospace;
-  font-size: .78rem;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--accent);
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.exp-col-title::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
+  font-family: 'DM Mono', monospace;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  font-size: .8rem;
 }
 
-/* Timeline: vertical connector line via ::before on the wrapper */
 .timeline {
+  padding-left: 22px;
+  border-left: 2px solid var(--border);
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  position: relative;
-  padding-left: 32px;
+  transition: border-color var(--t);
 }
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 9px;
-  top: 14px;
-  bottom: 14px;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, var(--accent) 12%, var(--accent) 88%, transparent);
-  opacity: .3;
-}
-
-/* Each item is now a glass card */
 .tl-item {
   position: relative;
-  padding: 16px 18px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--rl);
-  backdrop-filter: blur(12px) saturate(1.4);
-  transition: border-color var(--t), transform var(--t), box-shadow var(--t);
+  padding: 0 0 28px 26px;
 }
-[data-theme="light"] .tl-item {
-  background: #fff;
-  box-shadow: var(--shadow-sm);
-}
-.tl-item:last-child { margin-bottom: 0; }
-.tl-item:hover {
-  border-color: var(--border-h);
-  transform: translateX(4px);
-  box-shadow: -3px 0 0 var(--accent), var(--shadow);
-}
-
-/* Dot on the connector line */
+.tl-item:last-child { padding-bottom: 0; }
 .tl-item::before {
   content: '';
   position: absolute;
-  left: -23px;
-  top: 18px;
-  width: 10px;
-  height: 10px;
+  left: -7px; top: 5px;
+  width: 12px; height: 12px;
   border-radius: 50%;
   background: var(--accent);
   border: 2px solid var(--bg2);
-  box-shadow: 0 0 6px var(--accent-glow);
-  transition: transform var(--t), box-shadow var(--t);
-  z-index: 1;
+  transition: transform var(--t), background var(--t);
 }
-.tl-item:hover::before {
-  transform: scale(1.45);
-  box-shadow: 0 0 12px var(--accent-glow);
-}
+.tl-item:hover::before { transform: scale(1.35); }
 
-/* Date as a pill badge */
 .tl-date {
-  display: inline-block;
-  background: var(--accent-dim);
-  border: 1px solid rgba(91,143,212,.22);
-  border-radius: 20px;
-  padding: 2px 10px;
   font-family: 'DM Mono', monospace;
-  font-size: .62rem;
+  font-size: .66rem;
   font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
-
 .tl-role {
   font-family: 'Syne', sans-serif;
-  font-size: .92rem;
+  font-size: .95rem;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 2px;
+  margin-bottom: 3px;
 }
 .tl-header {
   display: flex;
@@ -1325,43 +1273,28 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; line-height: 1.1; }
   margin-bottom: 8px;
 }
 .tl-logo {
-  width: 34px;
-  height: 34px;
+  width: 36px; height: 36px;
   border-radius: 8px;
   object-fit: contain;
-  background: var(--bg);
+  background: var(--card);
   border: 1px solid var(--border);
   padding: 3px;
   flex-shrink: 0;
-  transition: border-color var(--t);
+  transition: border-color var(--t), background var(--t);
 }
 .tl-item:hover .tl-logo { border-color: var(--border-h); }
-.tl-org { font-size: .82rem; color: var(--text2); margin-bottom: 0; }
-.tl-note { font-size: .76rem; color: var(--text3); font-style: italic; }
-
+.tl-org { font-size: .84rem; color: var(--text2); margin-bottom: 0; }
+.tl-note { font-size: .78rem; color: var(--text3); font-style: italic; }
 .tl-bullets {
-  list-style: none;
-  padding-left: 0;
-  margin-left: 44px;
+  list-style: disc;
+  padding-left: 16px;
+  margin-left: 46px; /* 36px logo + 10px gap — aligns with role title */
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
   margin-top: 8px;
 }
-.tl-bullets li {
-  font-size: .81rem;
-  color: var(--text2);
-  line-height: 1.55;
-  padding-left: 14px;
-  position: relative;
-}
-.tl-bullets li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-  opacity: .7;
-}
+.tl-bullets li { font-size: .82rem; color: var(--text2); line-height: 1.55; }
 /* See More — grid-level */
 .hidden-init { display: none; }
 .see-more-wrap {
